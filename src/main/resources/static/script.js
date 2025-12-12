@@ -99,12 +99,12 @@ function fetchBooks(isAdmin) {
                 
                 let actionBtn = '';
                 if (isAdmin) {
-                    // Admin Actions: Return (if borrowed), maybe Delete later
-                   if (book.borrowed) {
-                        actionBtn = `<button onclick="returnBook(${book.id})" class="btn-primary" style="background:var(--warning-color)">Force Return</button>`;
-                   } else {
-                       actionBtn = `<span style="color:var(--text-secondary)">-</span>`;
-                   }
+                    // Admin Actions: Borrowed -> Return, All -> Remove
+                    actionBtn = `<button onclick="deleteBook(${book.id})" class="btn-primary" style="background: #ff4757; margin-right: 5px;">Remove</button>`;
+                    
+                    if (book.borrowed) {
+                        actionBtn += `<button onclick="returnBook(${book.id})" class="btn-primary" style="background:var(--warning-color)">Return</button>`;
+                    }
                 } else {
                     // Public Actions: Borrow only
                     if (!book.borrowed) {
@@ -147,4 +147,18 @@ window.returnBook = (id) => {
                 fetchBooks(isAdmin);
             }
         });
+};
+
+window.deleteBook = (id) => {
+    if(!confirm('Are you sure you want to remove this book from the inventory?')) return;
+    
+    fetch(`${API_URL}/${id}`, { method: 'DELETE' })
+        .then(res => {
+            if (res.ok) {
+                 fetchBooks(true);
+            } else {
+                alert("Failed to delete book.");
+            }
+        })
+        .catch(err => console.error(err));
 };

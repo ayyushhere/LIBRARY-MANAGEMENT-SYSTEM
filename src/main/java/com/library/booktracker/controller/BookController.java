@@ -45,4 +45,10 @@ public class BookController {
             return ResponseEntity.badRequest().body("Book is not borrowed or not found.");
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
+        bookService.deleteBook(id);
+        return ResponseEntity.ok().build();
+    }
 }
