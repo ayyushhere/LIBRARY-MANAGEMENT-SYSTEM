@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* macOS Dark Theme Palette */
+    --bg-color: #1e1e1e; /* Deep dark grey, almost black */
+    --window-bg: rgba(40, 40, 40, 0.75); /* Frosted glass dark */
+    --sidebar-bg: rgba(30, 30, 30, 0.6);
+    --accent-color: #007aff; /* Apple Blue */
+    --accent-glow: rgba(0, 122, 255, 0.4);
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --border-light: rgba(255, 255, 255, 0.1);
+    --danger-color: #ff3b30; /* Apple Red */
+    --success-color: #34c759; /* Apple Green */
+    --warning-color: #ffcc00; /* Apple Yellow */
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --glass-blur: blur(20px);
+    --radius-lg: 18px;
+    --radius-md: 12px;
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background: url('https://4kwallpapers.com/images/wallpapers/macos-big-sur-apple-layers-fluidic-colorful-wwdc-2020-5120x2880-1432.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex; /* For centering content if needed, main layout handles otherwise */
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* MacOS Window Container */
+.mac-window {
+    background: var(--window-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Window Header / Titlebar */
+.mac-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.close { background-color: var(--danger-color); }
+.minimize { background-color: var(--warning-color); }
+.maximize { background-color: var(--success-color); }
+
+.window-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 60px; /* Balance controls width */
+}
+
+/* Navbar inside app */
+.mac-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px var(--accent-glow);
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px var(--accent-glow);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer; 
+    font-size: 0.85rem;
+}
+
+/* Main Content Area */
+.content-area {
+    padding: 2rem;
+    min-height: 400px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(180deg, #fff 0%, #ccc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* Forms */
+.form-card {
+    background: rgba(0,0,0,0.2);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.mac-input {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    color: white;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.mac-input:focus {
+    border-color: var(--accent-color);
+}
+
+/* Table */
+.table-wrapper {
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-light);
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-avail { background: rgba(52, 199, 89, 0.2); color: var(--success-color); }
+.status-borrowed { background: rgba(255, 59, 48, 0.2); color: var(--danger-color); }
+
+/* Login Page specific */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

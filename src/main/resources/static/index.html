@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Book Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="public-page">
+    <div class="mac-window" style="border: none; background: transparent; box-shadow: none;">
+        <!-- Navbar -->
+        <div class="mac-navbar" style="background: rgba(0,0,0,0.4); backdrop-filter: blur(20px); border-radius: 16px; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span style="font-weight: 600; font-size: 1.1rem;">LibraryOS</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Browse</a>
+                <a href="#search" class="nav-link">Search</a>
+                <a href="login.html" class="btn-primary" style="font-size: 0.9rem;">Admin Login</a>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Your Knowledge, <br>Organized.</h1>
+            <p>Access thousands of books from our premium collection.<br>Borrow instantly, read anywhere.</p>
+            <div class="input-group" style="max-width: 500px; margin: 0 auto;">
+                <input type="text" id="search-input" class="mac-input" style="border-radius: 50px; padding: 15px 25px;" placeholder="Search for books, authors...">
+            </div>
+        </div>
+
+        <!-- Book Grid -->
+        <div class="mac-window" style="width: 100%; max-width: 1000px;">
+            <div class="mac-header">
+                <div class="window-controls">
+                    <div class="control close"></div>
+                    <div class="control minimize"></div>
+                    <div class="control maximize"></div>
+                </div>
+                <div class="window-title">Public Catalog</div>
+            </div>
+            
+            <div class="content-area">
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Book Title</th>
+                                <th>Author</th>
+                                <th>Availability</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="public-books-body">
+                            <!-- JS Populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

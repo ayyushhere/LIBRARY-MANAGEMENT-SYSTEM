@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Library Book Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="admin-page">
+    <div class="mac-window">
+        <!-- Header -->
+        <div class="mac-header">
+            <div class="window-controls">
+                <div class="control close"></div>
+                <div class="control minimize"></div>
+                <div class="control maximize"></div>
+            </div>
+            <div class="window-title">Admin Dashboard — Library Management System</div>
+        </div>
+
+        <!-- Navbar -->
+        <div class="mac-navbar">
+            <div class="brand" style="font-weight: 700; font-size: 1.2rem;">LMS Admin</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Main Site</a>
+                <button id="logout-btn" class="btn-danger">Lock Session</button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-area">
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem;">
+                
+                <!-- Sidebar / Form -->
+                <div>
+                    <div class="form-card" style="width: 100%; margin: 0;">
+                        <h3>Add New Book</h3>
+                        <form id="add-book-form">
+                            <div class="input-group">
+                                <label>Book Name</label>
+                                <input type="text" id="book-name" class="mac-input" placeholder="e.g. The Clean Coder" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Author</label>
+                                <input type="text" id="book-author" class="mac-input" placeholder="e.g. Robert Martin" required>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width: 100%;">Add to Inventory</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Inventory Overview</h3>
+                        <button onclick="fetchBooks()" class="btn-primary" style="background: transparent; border: 1px solid var(--border-light); font-size: 0.8rem;">Refresh</button>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Book</th>
+                                    <th>Author</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="books-body">
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
