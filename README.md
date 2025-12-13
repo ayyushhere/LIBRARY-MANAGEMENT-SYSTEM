@@ -1,4 +1,4 @@
-# Library Book Tracker (v2.1)
+# Library Book Tracker
 
 A modern, macOS-inspired Library Management System equipped with persistent storage, admin authentication, and a premium UI.
 
